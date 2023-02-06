@@ -1,5 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@900&display=swap");
 
 .App {
   text-align: center;
+  font-family: "Source Serif Pro", serif;
+}
+
+body {
+  background-color: rgb(248, 245, 242);
 }

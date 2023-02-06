@@ -1,0 +1,64 @@
+.article-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 7.5px;
+  background-color: white;
+  text-align: left;
+}
+
+.article-card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.article-card-container {
+  padding: 1px 8px;
+  text-align: left;
+  max-width: auto;
+  max-height: auto;
+  display: grid;
+  grid-template-areas:
+    ". . title title"
+    " img img topic author"
+    "img img date ."
+    "img img body body"
+    "img img body body"
+    ". . body body";
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 5px;
+}
+.article-title {
+  font-size: medium;
+  background-color: white;
+  grid-area: title;
+}
+.article-topic {
+  font-size: small;
+  background-color: white;
+  grid-area: topic;
+}
+.article-author {
+  font-size: small;
+  background-color: white;
+  grid-area: author;
+}
+.article-date {
+  font-size: small;
+  background-color: white;
+  grid-area: date;
+}
+.article-img {
+  border-radius: 5px 5px 5px 5px;
+  height: auto;
+  max-height: 250px;
+  width: auto;
+  max-width: 250px;
+  grid-area: img;
+}
+.article-body {
+  font-size: small;
+  background-color: white;
+  grid-area: body;
+}

@@ -1,0 +1,22 @@
+/* .all-item-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+    gap: 10px;
+  } */
+
+.articles-card-container {
+  list-style: none;
+  display: flex;
+  /* flex-wrap: wrap;
+  flex-flow: wrap;
+  justify-content: space-evenly; */
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+}
+.article-card-individual {
+  flex-grow: 0;
+}
