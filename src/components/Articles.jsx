@@ -13,7 +13,7 @@ function Articles() {
     getArticles(topic).then((articlesFromApi) => {
       setArticles(articlesFromApi);
     });
-  }, [topic]);
+  }, [topic]); //<---changed it
 
   return (
     <section>

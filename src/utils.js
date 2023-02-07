@@ -5,7 +5,7 @@ const newsAPI = axios.create({
 });
 
 export const getArticles = (topic) => {
-  let path = `/articles`;
+  let path = `/articles`; //<----changed it
   if (topic) path += `?topic=${topic}`;
   return newsAPI.get(path).then(({ data }) => {
     return data;
