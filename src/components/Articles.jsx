@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import { getArticles } from "../utils";
 import { v4 as uuidv4 } from "uuid";
 import ArticlesCard from "./ArticlesCard";
+import { useParams } from "react-router-dom";
 import "../styles/Articles.css";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
+  const { topic } = useParams();
 
   useEffect(() => {
-    getArticles().then((articlesFromApi) => {
+    getArticles(topic).then((articlesFromApi) => {
       setArticles(articlesFromApi);
     });
-  }, [setArticles]);
+  }, [topic]);
 
   return (
     <section>

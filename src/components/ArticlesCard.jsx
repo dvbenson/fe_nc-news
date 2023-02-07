@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Article from "./Article";
 import "../styles/ArticlesCard.css";
 
 function ArticlesCard({
