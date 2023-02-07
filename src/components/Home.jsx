@@ -1,7 +1,8 @@
 import React from "react";
+import Articles from "./Articles";
 
 function Home() {
-  return <main>This is the Home Page</main>;
+  return <Articles />;
 }
 
 export default Home;

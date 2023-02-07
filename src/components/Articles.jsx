@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getArticles } from "../utils";
 import { v4 as uuidv4 } from "uuid";
 import ArticlesCard from "./ArticlesCard";
+
 import "../styles/Articles.css";
 
 function Articles() {
@@ -28,6 +29,7 @@ function Articles() {
                 created_at={article.created_at}
                 article_img_url={article.article_img_url}
                 body={article.body}
+                id={article.article_id}
               />
             </li>
           );
