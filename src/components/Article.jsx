@@ -1,23 +1,36 @@
 import React, { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
 import ArticlesCard from "./ArticlesCard";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { getArticleById } from "../utils";
 
-function Article(article_id) {
-  const location = useLocation();
-  const { id } = location.state;
-
-  const [articleId, setArticleId] = useState("");
+function Article() {
   const [article, setArticle] = useState({});
-  //   const { article_id } = useParams();
+  const { article_id } = useParams();
 
-  //   useEffect(() => {
-  //     getArticleById(article_id).then((articleFromApi) => {
-  //       setArticle(articleFromApi);
-  //     });
-  //   }, [article_id]);
+  useEffect(() => {
+    getArticleById(article_id).then((articleFromApi) => {
+      setArticle(articleFromApi);
+    });
+  }, [setArticle]);
 
-  return <main>Article</main>;
+  return (
+    <div className="article-card">
+      <div className="article-card-container">
+        <h1 className="article-title">{article.title}</h1>
+        <p className="article-topic">Topic: {article.topic}</p>
+        <p className="article-author">
+          By <i>{article.author}</i>
+        </p>
+        <p className="article-date">{article.created_at}</p>
+        <img
+          className="article-img"
+          src={article.article_img_url}
+          alt={article.author}
+        ></img>
+        <p className="article-body">{article.body}</p>
+      </div>
+    </div>
+  );
 }
 
 export default Article;

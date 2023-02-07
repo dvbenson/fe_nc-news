@@ -29,7 +29,7 @@ function Articles() {
                 created_at={article.created_at}
                 article_img_url={article.article_img_url}
                 body={article.body}
-                id={article.article_id}
+                article_id={article.article_id}
               />
             </li>
           );

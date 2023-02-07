@@ -1,6 +1,6 @@
 import React from "react";
 
-function Comments() {
+function Comments({ articleId, setArticleId }) {
   return <main>Comments</main>;
 }
 
