@@ -10,7 +10,7 @@ function ArticlesCard({
   created_at,
   article_img_url,
   body,
-  id,
+  article_id,
 }) {
   return (
     <div className="article-card">
@@ -22,10 +22,8 @@ function ArticlesCard({
         </p>
         <p className="article-date">{created_at}</p>
         <img className="article-img" src={article_img_url} alt={author}></img>
-        <p className="article-body">{body}</p>
-        <Link to="/articles/:article_id" state={{ from: "id" }}>
-          Continue reading...
-        </Link>
+        <p className="article-body">{body.substring(0, 100) + "..."}</p>
+        <Link to={`/articles/${article_id}`}>Continue Reading...</Link>
       </div>
     </div>
   );
