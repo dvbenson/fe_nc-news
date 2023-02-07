@@ -2,22 +2,36 @@ import React, { useEffect, useState } from "react";
 import { getArticles } from "../utils";
 import { v4 as uuidv4 } from "uuid";
 import ArticlesCard from "./ArticlesCard";
-import { useParams } from "react-router-dom";
+import SearchBar from "./SearchBar";
+import { useParams, useSearchParams } from "react-router-dom";
 import "../styles/Articles.css";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
+  const [sortBy, setSortBy] = useState("");
+  const [order, setOrder] = useState("");
   const { topic } = useParams();
+  let [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    getArticles(topic).then((articlesFromApi) => {
+    getArticles(topic, sortBy, order).then((articlesFromApi) => {
       setArticles(articlesFromApi);
     });
-  }, [topic]);
+  }, [topic, sortBy, order]);
+
+  console.log(order);
+  console.log(sortBy);
 
   return (
     <section>
-      <h1>Articles</h1>
+      <SearchBar
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        order={order}
+        setOrder={setOrder}
+        searchParams={searchParams}
+        setSearchParams={setSearchParams}
+      />
       <ul className="articles-card-container">
         {articles.map((article) => {
           return (
