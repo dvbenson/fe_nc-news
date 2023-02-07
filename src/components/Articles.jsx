@@ -10,57 +10,32 @@ function Articles() {
   const { topic } = useParams();
 
   useEffect(() => {
-    getArticles().then((articlesFromApi) => {
+    getArticles(topic).then((articlesFromApi) => {
       setArticles(articlesFromApi);
     });
-  }, [setArticles]);
+  }, [topic]);
 
   return (
     <section>
       <h1>Articles</h1>
-      {topic ? (
-        <ul className="articles-card-container">
-          {articles
-            .filter((article) => {
-              return topic === article.topic;
-            })
-            .map((article) => {
-              return (
-                <li key={uuidv4()}>
-                  <ArticlesCard
-                    className="article-card-individual"
-                    title={article.title}
-                    topic={article.topic}
-                    author={article.author}
-                    created_at={article.created_at}
-                    article_img_url={article.article_img_url}
-                    body={article.body}
-                    article_id={article.article_id}
-                  />
-                </li>
-              );
-            })}
-        </ul>
-      ) : (
-        <ul className="articles-card-container">
-          {articles.map((article) => {
-            return (
-              <li key={uuidv4()}>
-                <ArticlesCard
-                  className="article-card-individual"
-                  title={article.title}
-                  topic={article.topic}
-                  author={article.author}
-                  created_at={article.created_at}
-                  article_img_url={article.article_img_url}
-                  body={article.body}
-                  article_id={article.article_id}
-                />
-              </li>
-            );
-          })}
-        </ul>
-      )}
+      <ul className="articles-card-container">
+        {articles.map((article) => {
+          return (
+            <li key={uuidv4()}>
+              <ArticlesCard
+                className="article-card-individual"
+                title={article.title}
+                topic={article.topic}
+                author={article.author}
+                created_at={article.created_at}
+                article_img_url={article.article_img_url}
+                body={article.body}
+                article_id={article.article_id}
+              />
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }

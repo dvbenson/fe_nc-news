@@ -4,8 +4,10 @@ const newsAPI = axios.create({
   baseURL: "https://badsauce-webservices.onrender.com/api",
 });
 
-export const getArticles = () => {
-  return newsAPI.get("/articles").then(({ data }) => {
+export const getArticles = (topic) => {
+  let path = `/articles`;
+  if (topic) path += `?topic=${topic}`;
+  return newsAPI.get(path).then(({ data }) => {
     return data;
   });
 };
