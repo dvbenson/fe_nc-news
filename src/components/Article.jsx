@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import ArticlesCard from "./ArticlesCard";
 import { useParams } from "react-router-dom";
-import { getArticleById } from "../utils";
+import { getArticleById, getCommentsById } from "../utils";
 
 function Article() {
   const [article, setArticle] = useState({});
+  const [comments, setComments] = useState([]);
   const { article_id } = useParams();
 
   useEffect(() => {
-    getArticleById(article_id).then((articleFromApi) => {
-      setArticle(articleFromApi);
-    });
+    Promise.all([getArticleById(article_id), getCommentsById(article_id)]).then(
+      ([articleFromApi, commentsFromApi]) => {
+        setArticle(articleFromApi);
+        setComments(commentsFromApi);
+      }
+    );
   }, [setArticle]);
 
   return (
