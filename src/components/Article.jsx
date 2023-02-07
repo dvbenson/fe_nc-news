@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 function Article(article_id) {
   const location = useLocation();
-  const { from } = location.state;
+  const { id } = location.state;
 
   const [articleId, setArticleId] = useState("");
   const [article, setArticle] = useState({});
