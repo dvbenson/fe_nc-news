@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ArticlesCard from "./ArticlesCard";
+import Comments from "./Comments";
 import { useParams } from "react-router-dom";
 import { getArticleById, getCommentsById } from "../utils";
 
@@ -33,6 +34,8 @@ function Article() {
         ></img>
         <p className="article-body">{article.body}</p>
       </div>
+
+      <Comments comments={comments} />
     </div>
   );
 }
