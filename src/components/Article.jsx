@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
-import ArticlesCard from "./ArticlesCard";
+import Comments from "./Comments";
 import { useParams } from "react-router-dom";
-import { getArticleById, getCommentsById } from "../utils";
+import { getArticleById } from "../utils";
 
 function Article() {
   const [article, setArticle] = useState({});
-  const [comments, setComments] = useState([]);
   const { article_id } = useParams();
 
   useEffect(() => {
-    Promise.all([getArticleById(article_id), getCommentsById(article_id)]).then(
-      ([articleFromApi, commentsFromApi]) => {
-        setArticle(articleFromApi);
-        setComments(commentsFromApi);
-      }
-    );
-  }, [setArticle]);
+    getArticleById(article_id).then((articleFromApi) => {
+      setArticle(articleFromApi);
+    });
+  }, [article_id]);
 
   return (
     <div className="article-card">
@@ -33,6 +29,8 @@ function Article() {
         ></img>
         <p className="article-body">{article.body}</p>
       </div>
+
+      <Comments article_id={article_id} />
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { getArticles } from "../utils";
 import { v4 as uuidv4 } from "uuid";
 import ArticlesCard from "./ArticlesCard";
-
 import "../styles/Articles.css";
 
 function Articles() {

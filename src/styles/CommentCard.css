@@ -1,0 +1,60 @@
+.comment-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 7.5px;
+  background-color: white;
+  text-align: left;
+}
+
+.comment-card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.comment-card-container {
+  padding: 1px 8px;
+  text-align: left;
+  max-width: auto;
+  max-height: auto;
+  display: grid;
+  grid-template-areas:
+    "body body . author"
+    "body body . date"
+    ". . . votes"
+    ". . vote-down vote-up ";
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 5px;
+}
+
+.comment-author {
+  font-size: small;
+  background-color: white;
+  grid-area: author;
+}
+.comment-date {
+  font-size: small;
+  background-color: white;
+  grid-area: date;
+}
+
+.comment-body {
+  font-size: small;
+  background-color: white;
+  grid-area: body;
+}
+
+.comment-votes {
+  grid-area: votes;
+}
+
+.comment-upvotes {
+  grid-area: vote-up;
+  background-color: yellow;
+}
+
+.comment-downvotes {
+  grid-area: vote-down;
+  background-color: red;
+}
