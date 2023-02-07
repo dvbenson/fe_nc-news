@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Articles from "./components/Articles";
@@ -8,7 +7,6 @@ import Comments from "./components/Comments";
 import "./styles/App.css";
 
 function App() {
-  const [articleId, setArticleId] = useState("");
   return (
     <div className="App">
       <Navbar />

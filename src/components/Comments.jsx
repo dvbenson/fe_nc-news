@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import CommentCard from "./CommentCard";
 import Toggle from "./Toggle";
 import "../styles/Comments.css";
+import { getCommentsById } from "../utils";
 
-function Comments({ comments }) {
+function Comments({ article_id }) {
+  const [comments, setComments] = useState([]);
   const [isHidden, setIsHidden] = useState(true);
+
+  useEffect(() => {
+    getCommentsById(article_id).then((commentsFromApi) => {
+      setComments(commentsFromApi);
+    });
+  }, [article_id]);
 
   const handleClick = (e) => {
     setIsHidden(!isHidden);
