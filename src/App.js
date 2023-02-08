@@ -6,8 +6,12 @@ import Article from "./components/Article";
 import Comments from "./components/Comments";
 import Login from "./components/Login";
 import "./styles/App.css";
+import { UserContext } from "./contexts/UserContext";
+import { useContext } from "react";
 
 function App() {
+  const userValue = useContext(UserContext);
+  console.log(userValue, "<< ---- userValue");
   return (
     <div className="App">
       <Navbar />
