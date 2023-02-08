@@ -4,13 +4,16 @@ const newsAPI = axios.create({
   baseURL: "https://badsauce-webservices.onrender.com/api",
 });
 
-export const getArticles = (topic, sortBy, order) => {
-  let path = `/articles`;
-  if (topic) path += `?topic=${topic}`;
-  if (sortBy) path += `&sort_by=${sortBy}`;
-  if (order) path += `&order=${order}`;
+export const getArticles = (topic, searchParams) => {
+  let paramSearch = {};
+  const sortBy = searchParams.get("sort_by");
+  const order = searchParams.get("order");
 
-  return newsAPI.get(path).then(({ data }) => {
+  if (topic) paramSearch = { topic: topic, sort_by: sortBy, order: order };
+  else if (!topic) paramSearch = { sort_by: sortBy, order: order };
+
+  return newsAPI.get("/articles", { params: paramSearch }).then(({ data }) => {
+    console.log(searchParams);
     return data;
   });
 };
