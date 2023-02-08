@@ -13,7 +13,6 @@ export const getArticles = (topic, searchParams) => {
   else if (!topic) paramSearch = { sort_by: sortBy, order: order };
 
   return newsAPI.get("/articles", { params: paramSearch }).then(({ data }) => {
-    console.log(searchParams);
     return data;
   });
 };
@@ -32,6 +31,12 @@ export const getCommentsById = (article_id) => {
 
 export const getTopics = () => {
   return newsAPI.get(`/topics`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getUsers = () => {
+  return newsAPI.get(`/users`).then(({ data }) => {
     return data;
   });
 };

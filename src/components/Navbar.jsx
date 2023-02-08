@@ -3,6 +3,7 @@ import { getTopics } from "../utils";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import "../styles/Navbar.css";
+import { ReactComponent as Brand } from "../images/logo.svg";
 
 function Navbar() {
   const [topics, setTopics] = useState([]);
@@ -20,6 +21,9 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
+        <div className="navbar-logo">
+          <Brand />
+        </div>
         <div className="navbar-elements">
           <ul>
             <li key={uuidv4()}>
