@@ -14,8 +14,10 @@
   position: relative;
 }
 
-/* .navbar-elements {
-} */
+.navbar-elements {
+}
+.navbar-logo {
+}
 
 .navbar-elements ul {
   display: flex;
