@@ -24,7 +24,6 @@ function Navbar() {
         <div className="navbar-logo">
           <Brand />
         </div>
-
         <div className="navbar-elements">
           <ul>
             <li key={uuidv4()}>
@@ -43,7 +42,7 @@ function Navbar() {
               );
             })}
             <li key={uuidv4()}>
-              <Link to="/login">Login</Link>
+              <Link to={`/loginpage`}>Login</Link>
             </li>
           </ul>
         </div>

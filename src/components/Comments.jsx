@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 import { v4 as uuidv4 } from "uuid";
 import CommentCard from "./CommentCard";
 import Toggle from "./Toggle";
 import "../styles/Comments.css";
-import { getCommentsById } from "../utils";
+import { getCommentsById, deleteCommentById } from "../utils";
 
 function Comments({ article_id }) {
   const [comments, setComments] = useState([]);
   const [isHidden, setIsHidden] = useState(true);
+  const { loggedInUser } = useContext(UserContext);
 
   useEffect(() => {
     getCommentsById(article_id).then((commentsFromApi) => {
@@ -17,6 +19,15 @@ function Comments({ article_id }) {
 
   const handleClick = (e) => {
     setIsHidden(!isHidden);
+  };
+
+  const deleteComment = (comment_id) => {
+    deleteCommentById(comment_id);
+    setComments((currComments) => {
+      return currComments.filter(
+        (comment) => comment.comment_id !== comment_id
+      );
+    });
   };
 
   return (
@@ -35,6 +46,16 @@ function Comments({ article_id }) {
                   votes={comment.votes}
                   comment_id={comment.comment_id}
                 />
+                {loggedInUser.username === comment.author ? (
+                  <button
+                    className="delete-comment-button"
+                    onClick={() => deleteComment(comment.comment_id)}
+                  >
+                    Delete Comment
+                  </button>
+                ) : (
+                  <></>
+                )}
               </li>
             );
           })}

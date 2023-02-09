@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
+
 import { getUsers } from "../utils";
 import { v4 as uuidv4 } from "uuid";
 import "../styles/Login.css";
-// import { UserContext } from "./contexts/UserContext";
-// import { useContext } from "react";
 import User from "./User";
 
-function Login() {
+function LoginPage() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -14,14 +13,6 @@ function Login() {
       setUsers(usersFromApi);
     });
   }, [setUsers]);
-
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-
-  //   setLoggedInUser({
-  //     username: e.target.username,
-  //   });
-  // };
 
   return (
     <section className="login-page">
@@ -36,7 +27,6 @@ function Login() {
                   img={user.avatar_url}
                   name={user.name}
                   username={user.username}
-                  // onClick={handleClick}
                 />
               </li>
             );
@@ -47,4 +37,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginPage;

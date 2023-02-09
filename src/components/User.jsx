@@ -1,7 +1,9 @@
 import React from "react";
 import "../styles/User.css";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
-function User({ img, name, username, onClick }) {
+function User({ img, name, username }) {
   return (
     <div className="user-container">
       <div className="avatar-container">
@@ -9,7 +11,8 @@ function User({ img, name, username, onClick }) {
       </div>
       <p>{name}</p>
       <p>{username}</p>
-      <button>Login</button>
+      <LoginButton username={username} />
+      <LogoutButton />
     </div>
   );
 }
