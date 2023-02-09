@@ -1,0 +1,17 @@
+.login-page {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.user-profiles {
+}
+
+.user-list {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+}
+
+.avatar {
+  width: 100%;
+}

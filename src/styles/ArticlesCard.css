@@ -5,6 +5,8 @@
   padding: 7.5px;
   background-color: white;
   text-align: left;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .article-card:hover {
@@ -18,7 +20,7 @@
   max-height: auto;
   display: grid;
   grid-template-areas:
-    "title title . . ."
+    "title title title title title"
     "img img  topic author ."
     "img img  date  comment-count ."
     "img img  body  article-votes ."
@@ -29,10 +31,16 @@
   column-gap: 10px;
   row-gap: 5px;
 }
+
+.bold {
+  font-weight: bold;
+}
 .article-title {
   font-size: medium;
   background-color: white;
   grid-area: title;
+  text-align: center;
+  text-decoration: solid;
 }
 .article-topic {
   font-size: small;

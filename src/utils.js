@@ -40,3 +40,7 @@ export const getUsers = () => {
     return data;
   });
 };
+
+export const deleteCommentById = (comment_id) => {
+  return newsAPI.delete(`/comments/${comment_id}`);
+};

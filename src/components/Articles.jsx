@@ -31,9 +31,9 @@ function Articles() {
   };
 
   return (
-    <section>
+    <section className="search-form-articles">
       <form onSubmit={handleSubmit}>
-        <fieldset>
+        <fieldset className="articles-fieldset">
           <legend>Refine your search:</legend>
           <label htmlFor="sort-by">Sort By:</label>
           <select
