@@ -1,0 +1,38 @@
+.contact-main {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.contact-button {
+  display: block;
+  text-align: center;
+}
+
+.contact-form-textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  min-height: 8em;
+  min-width: 100%;
+}
+
+.contact-form-label {
+  display: block;
+  margin-top: 1em;
+}
+
+.contact-input[type="text"] {
+  width: 15em;
+  height: 2.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="email"] {
+  width: 15em;
+  height: 2.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

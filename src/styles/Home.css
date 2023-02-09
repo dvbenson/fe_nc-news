@@ -1,0 +1,14 @@
+h1,
+h2,
+h3 {
+  text-align: left;
+}
+
+p {
+  text-align: left;
+}
+
+.home-main {
+  margin-left: 15%;
+  margin-right: 15%;
+}

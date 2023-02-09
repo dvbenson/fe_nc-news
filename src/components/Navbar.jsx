@@ -30,8 +30,15 @@ function Navbar() {
               <Link to="/">Home</Link>
             </li>
             <li key={uuidv4()}>
+              <Link to="/about">About</Link>
+            </li>
+            <li key={uuidv4()}>
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li key={uuidv4()}>
               <Link to="/articles">All News</Link>
             </li>
+
             {topics.map((topic) => {
               return (
                 <li key={uuidv4()}>
@@ -41,6 +48,7 @@ function Navbar() {
                 </li>
               );
             })}
+
             <li key={uuidv4()}>
               <Link to={`/loginpage`}>Login</Link>
             </li>
