@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
-import { UserContext } from "../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext";
 import { v4 as uuidv4 } from "uuid";
 import CommentCard from "./CommentCard";
 import Toggle from "./Toggle";
-import "../styles/Comments.css";
-import { getCommentsById, deleteCommentById } from "../utils";
+import "../../styles/Comments.css";
+import { getCommentsById, deleteCommentById } from "../../utils";
 
 function Comments({ article_id }) {
   const [comments, setComments] = useState([]);

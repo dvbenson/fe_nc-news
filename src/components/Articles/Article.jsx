@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Comments from "./Comments";
+import Comments from "../Comments/Comments";
 import { useParams } from "react-router-dom";
-import { getArticleById } from "../utils";
+import { getArticleById } from "../../utils";
 
 function Article() {
   const [article, setArticle] = useState({});

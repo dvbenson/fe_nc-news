@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import { getUsers } from "../utils";
+import { getUsers } from "../../utils";
 import { v4 as uuidv4 } from "uuid";
-import "../styles/Login.css";
+import "../../styles/Login.css";
 import User from "./User";
 
 function LoginPage() {

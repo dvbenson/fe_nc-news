@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/CommentCard.css";
+import "../../styles/CommentCard.css";
 
 function CommentCard({ body, author, created_at, votes, comment_id }) {
   return (

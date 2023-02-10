@@ -1,13 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-// import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Articles from "./components/Articles";
-import Article from "./components/Article";
-import Comments from "./components/Comments";
-import LoginPage from "./components/LoginPage";
+import Home from "./components/Basics/Home";
+import About from "./components/Basics/About";
+import Contact from "./components/Basics/Contact";
+import Articles from "./components/Articles/Articles";
+import Article from "./components/Articles/Article";
+import Comments from "./components/Comments/Comments";
+import LoginPage from "./components/Authentication/LoginPage";
 import "./styles/App.css";
 
 function App() {

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { UserContext } from "../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext";
 
 function LogoutButton() {
   const { logout } = useContext(UserContext);
