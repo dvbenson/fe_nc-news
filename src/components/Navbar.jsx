@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ErrorPage from "./ErrorPage";
+
 import { getTopics } from "../utils";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -9,18 +9,13 @@ import { ReactComponent as Brand } from "../images/logo.svg";
 function Navbar() {
   const [topics, setTopics] = useState([]);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setError(null);
-    setIsLoading(true);
+
     getTopics()
       .then((topicsFromApi) => {
         setTopics(topicsFromApi);
-
-        if (topicsFromApi !== null) {
-          setIsLoading(false);
-        }
       })
       .catch((err) => {
         setError(err);
