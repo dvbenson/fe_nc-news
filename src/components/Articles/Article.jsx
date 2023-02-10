@@ -23,12 +23,13 @@ function Article() {
       })
       .catch((err) => {
         setError(err);
+
         setIsLoading(false);
       });
   }, [article_id]);
 
   if (error) {
-    return <ErrorPage />;
+    return <ErrorPage status={error.response.status} />;
   }
 
   return (

@@ -9,12 +9,18 @@ import { ReactComponent as Brand } from "../images/logo.svg";
 function Navbar() {
   const [topics, setTopics] = useState([]);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setError(null);
+    setIsLoading(true);
     getTopics()
       .then((topicsFromApi) => {
         setTopics(topicsFromApi);
+
+        if (topicsFromApi !== null) {
+          setIsLoading(false);
+        }
       })
       .catch((err) => {
         setError(err);
@@ -26,7 +32,35 @@ function Navbar() {
   };
 
   if (error) {
-    return <ErrorPage />;
+    return (
+      <nav className="navbar">
+        <div className="navbar-container">
+          <div className="navbar-logo">
+            <Brand />
+          </div>
+          <div className="navbar-elements">
+            <ul>
+              <li key={uuidv4()}>
+                <Link to="/">Home</Link>
+              </li>
+              <li key={uuidv4()}>
+                <Link to="/about">About</Link>
+              </li>
+              <li key={uuidv4()}>
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li key={uuidv4()}>
+                <Link to="/articles">All News</Link>
+              </li>
+
+              <li key={uuidv4()}>
+                <Link to={`/loginpage`}>Login</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    );
   }
 
   return (

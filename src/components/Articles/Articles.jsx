@@ -28,6 +28,7 @@ function Articles() {
       })
       .catch((err) => {
         setError(err);
+
         setIsLoading(false);
       });
   }, [topic, searchParams]);
@@ -45,7 +46,7 @@ function Articles() {
   };
 
   if (error) {
-    return <ErrorPage />;
+    return <ErrorPage status={error.response.status} />;
   }
   return (
     <section className="search-form-articles">

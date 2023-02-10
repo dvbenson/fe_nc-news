@@ -36,16 +36,22 @@ function Comments({ article_id }) {
   };
 
   const deleteComment = (comment_id) => {
-    deleteCommentById(comment_id);
-    setComments((currComments) => {
-      return currComments.filter(
-        (comment) => comment.comment_id !== comment_id
-      );
-    });
+    deleteCommentById({ setError, comment_id })
+      .then(() => {
+        setComments((currComments) => {
+          return currComments.filter(
+            (comment) => comment.comment_id !== comment_id
+          );
+        });
+      })
+      .catch((err) => {
+        setError(err);
+        setIsLoading(false);
+      });
   };
 
   if (error) {
-    return <ErrorPage />;
+    return <ErrorPage status={error.response.status} />;
   }
 
   return (

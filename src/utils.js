@@ -41,6 +41,11 @@ export const getUsers = () => {
   });
 };
 
-export const deleteCommentById = (comment_id) => {
-  return newsAPI.delete(`/comments/${comment_id}`);
+export const deleteCommentById = ({ setError, comment_id }) => {
+  return newsAPI.delete(`/comments/${comment_id}`).catch((err) => {
+    if (err) {
+      setError(err);
+      return err;
+    }
+  });
 };
