@@ -36,6 +36,9 @@ function Navbar() {
           <div className="navbar-elements">
             <ul>
               <li key={uuidv4()}>
+                <Link to={`/loginpage`}>Login</Link>
+              </li>
+              <li key={uuidv4()}>
                 <Link to="/">Home</Link>
               </li>
               <li key={uuidv4()}>
@@ -48,9 +51,6 @@ function Navbar() {
                 <Link to="/articles">All News</Link>
               </li>
               <li>Error Loading Refresh Browser</li>
-              <li key={uuidv4()}>
-                <Link to={`/loginpage`}>Login</Link>
-              </li>
             </ul>
           </div>
         </div>
@@ -67,6 +67,9 @@ function Navbar() {
         <div className="navbar-elements">
           <ul>
             <li key={uuidv4()}>
+              <Link to={`/loginpage`}>Login</Link>
+            </li>
+            <li key={uuidv4()}>
               <Link to="/">Home</Link>
             </li>
             <li key={uuidv4()}>
@@ -76,7 +79,7 @@ function Navbar() {
               <Link to="/contact">Contact</Link>
             </li>
             <li key={uuidv4()}>
-              <Link to="/articles">All News</Link>
+              <Link to="/articles">News</Link>
             </li>
 
             {topics.map((topic) => {
@@ -88,10 +91,6 @@ function Navbar() {
                 </li>
               );
             })}
-
-            <li key={uuidv4()}>
-              <Link to={`/loginpage`}>Login</Link>
-            </li>
           </ul>
         </div>
       </div>

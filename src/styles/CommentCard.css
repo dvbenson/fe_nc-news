@@ -18,10 +18,10 @@
   max-height: auto;
   display: grid;
   grid-template-areas:
-    "body body . author"
-    "body body . date"
-    ". . . votes"
-    ". . vote-down vote-up ";
+    "body . . author"
+    "body . . date"
+    "body . votes votes"
+    "body . vote-down vote-up ";
   grid-template-columns: auto;
   grid-template-rows: auto;
   column-gap: 10px;
@@ -30,18 +30,18 @@
 
 .comment-author {
   font-size: small;
-  background-color: white;
+
   grid-area: author;
 }
 .comment-date {
   font-size: small;
-  background-color: white;
+  font-weight: bolder;
   grid-area: date;
 }
 
 .comment-body {
-  font-size: small;
-  background-color: white;
+  font-size: large;
+  font-weight: 700;
   grid-area: body;
 }
 
@@ -51,10 +51,18 @@
 
 .comment-upvotes {
   grid-area: vote-up;
-  background-color: yellow;
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 .comment-downvotes {
   grid-area: vote-down;
-  background-color: red;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.bold {
+  font-weight: bolder;
 }

@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import * as IoIcons from "react-icons/io";
 import "../../styles/ArticlesCard.css";
 
 function ArticlesCard({
@@ -35,7 +38,7 @@ function ArticlesCard({
         <img className="article-img" src={article_img_url} alt={author}></img>
         <p className="article-body">{body.substring(0, 100) + "..."}</p>
         <Link className="continue-read" to={`/articles/${article_id}`}>
-          Continue Reading...
+          <FaIcons.FaExpandArrowsAlt />
         </Link>
       </div>
     </div>

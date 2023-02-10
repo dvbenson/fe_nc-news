@@ -3,7 +3,7 @@
   transition: 0.3s;
   border-radius: 5px;
   padding: 7.5px;
-  background-color: white;
+  background-color: rgb(232, 230, 225);
   text-align: left;
   margin-left: 15%;
   margin-right: 15%;
@@ -31,42 +31,44 @@
   column-gap: 10px;
   row-gap: 5px;
 }
+.article-card-container a {
+}
 
 .bold {
   font-weight: bold;
 }
 .article-title {
   font-size: medium;
-  background-color: white;
+
   grid-area: title;
   text-align: center;
   text-decoration: solid;
 }
 .article-topic {
   font-size: small;
-  background-color: white;
+
   grid-area: topic;
 }
 .article-author {
   font-size: small;
-  background-color: white;
+
   grid-area: author;
 }
 .article-date {
   font-size: small;
-  background-color: white;
+
   grid-area: date;
 }
 
 .article-comment-count {
   font-size: small;
-  background-color: white;
+
   grid-area: comment-count;
 }
 
 .article-votes {
   font-size: small;
-  background-color: white;
+
   grid-area: article-votes;
 }
 
@@ -84,7 +86,7 @@
 }
 .article-body {
   font-size: small;
-  background-color: white;
+
   grid-area: body;
 }
 

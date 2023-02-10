@@ -1,6 +1,34 @@
-.contact-main {
+/* MOBILE FIRST */
+/* -----------------------------*/
+/* HOME */
+h1,
+h2,
+h3 {
+  text-align: left;
+}
+
+p {
+  text-align: left;
+}
+
+.home-main {
   margin-left: 15%;
   margin-right: 15%;
+}
+
+/* ABOUT */
+.about-main {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+/* CONTACT */
+.contact-form {
+  padding: 0;
+}
+.contact-main {
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .contact-button {

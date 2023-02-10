@@ -3,6 +3,7 @@ import Comments from "../Comments/Comments";
 import ErrorPage from "../ErrorPage";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../../utils";
+import "../../styles/ArticlesCard.css";
 
 function Article() {
   const [article, setArticle] = useState({});
@@ -46,7 +47,9 @@ function Article() {
             <p className="article-author">
               By <i>{article.author}</i>
             </p>
-            <p className="article-date">{article.created_at}</p>
+            <p className="article-date">
+              {article.created_at.substring(0, 10)}
+            </p>
             <img
               className="article-img"
               src={article.article_img_url}

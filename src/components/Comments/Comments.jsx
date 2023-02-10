@@ -61,7 +61,7 @@ function Comments({ article_id }) {
           <i>Making up the news...</i>
         </p>
       ) : (
-        <div>
+        <div className="comment-toggle">
           <Toggle label={`Hide/Show Comments`} onClick={handleClick} />
           {isHidden ? (
             <ul className="comments-card-container">

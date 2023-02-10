@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
 
-.App {
+.App img {
+  max-width: 100%;
 }
 
 body {
   font-family: "Lato";
-  background-color: rgb(249, 247, 243);
+  background-color: rgb(233, 232, 230);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

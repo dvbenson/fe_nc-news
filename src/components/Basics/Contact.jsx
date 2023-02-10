@@ -1,15 +1,11 @@
 import React from "react";
-import "../../styles/Contact.css";
+import "../../styles/Basics.css";
 
 function Contact() {
   return (
     <main className="contact-main">
       <h1>How to reach us:</h1>
-      <p>
-        I'm baby est gatekeep intelligentsia, aliquip chillwave master cleanse
-        poutine photo booth duis af yuccie forage hella kogi cupidatat.
-      </p>
-      <form className="contact-form-dummy">
+      <form className="contact-form">
         <div className="name-email">
           <label className="contact-form-label" htmlFor="full-name">
             Full Name:
