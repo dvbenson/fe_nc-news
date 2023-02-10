@@ -16,8 +16,8 @@ function LoginPage() {
 
   return (
     <section className="login-page">
-      <h1>Log-in Page</h1>
-      <div className="user-profiles">
+      <h1 className="login-title">Login below:</h1>
+      <div className="user-profiles-container">
         <ul className="user-list">
           {users.map((user) => {
             return (

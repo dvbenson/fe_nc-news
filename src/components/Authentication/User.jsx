@@ -9,10 +9,10 @@ function User({ img, name, username }) {
       <div className="avatar-container">
         <img className="avatar" src={img} alt={`${username}`}></img>
       </div>
-      <p>{name}</p>
-      <p>{username}</p>
+      <p className="user-name">{name}</p>
+      <p className="user-username">@{username}</p>
       <LoginButton username={username} />
-      <LogoutButton />
+      <LogoutButton username={username} />
     </div>
   );
 }

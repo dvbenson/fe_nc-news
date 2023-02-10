@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ErrorPage from "./ErrorPage";
 import { getTopics } from "../utils";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -7,16 +8,26 @@ import { ReactComponent as Brand } from "../images/logo.svg";
 
 function Navbar() {
   const [topics, setTopics] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getTopics().then((topicsFromApi) => {
-      setTopics(topicsFromApi);
-    });
+    setError(null);
+    getTopics()
+      .then((topicsFromApi) => {
+        setTopics(topicsFromApi);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, [setTopics]);
 
   const capFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
+
+  if (error) {
+    return <ErrorPage />;
+  }
 
   return (
     <nav className="navbar">

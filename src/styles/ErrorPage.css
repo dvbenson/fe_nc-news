@@ -1,0 +1,14 @@
+.error-page-main {
+  margin-top: 15%;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+.error-page-title,
+.error-page-body,
+.error-page-home-link {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}

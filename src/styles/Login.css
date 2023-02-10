@@ -1,17 +1,111 @@
+/* Authentication */
+
+/* login-page */
+
 .login-page {
   margin-left: 10%;
   margin-right: 10%;
+  /* display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between; */
 }
 
-.user-profiles {
+.login-title {
+  margin-top: 7.5%;
+}
+
+.user-profiles-container {
+  display: flex;
+
+  gap: 20px;
+  justify-content: space-between;
 }
 
 .user-list {
   list-style-type: none;
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 25px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .avatar {
   width: 100%;
+}
+
+/* logout-button */
+
+.logout-button {
+  background: #ff4742;
+  border: 1px solid #ff4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.logout-button:hover,
+.logout-button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #ff4742;
+}
+
+.logout-button:active {
+  opacity: 0.5;
+}
+
+/* login-button */
+.login-button {
+  background: greenyellow;
+  border: 1px solid greenyellow;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.login-button:hover,
+.login-button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: greenyellow;
+}
+
+.login-button:active {
+  opacity: 0.5;
 }

@@ -1,12 +1,20 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import "../../styles/Login.css";
 
-function LogoutButton() {
+function LogoutButton({ username }) {
   const { logout } = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <div>
-      <button onClick={logout}>Logout</button>
+      {loggedInUser.username === username ? (
+        <button className="logout-button" onClick={logout}>
+          Logout
+        </button>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
