@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import "../../styles/Login.css";
 
 function LoginButton({ username }) {
   const { login } = useContext(UserContext);
@@ -10,7 +11,9 @@ function LoginButton({ username }) {
       {loggedInUser.username === username ? (
         <></>
       ) : (
-        <button onClick={() => login(username)}>Login</button>
+        <button className="login-button" onClick={() => login(username)}>
+          Login
+        </button>
       )}
     </div>
   );

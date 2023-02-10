@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ErrorPage from "./ErrorPage";
 import { getTopics } from "../utils";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
@@ -7,16 +8,60 @@ import { ReactComponent as Brand } from "../images/logo.svg";
 
 function Navbar() {
   const [topics, setTopics] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getTopics().then((topicsFromApi) => {
-      setTopics(topicsFromApi);
-    });
+    setError(null);
+    setIsLoading(true);
+    getTopics()
+      .then((topicsFromApi) => {
+        setTopics(topicsFromApi);
+
+        if (topicsFromApi !== null) {
+          setIsLoading(false);
+        }
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, [setTopics]);
 
   const capFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
+
+  if (error) {
+    return (
+      <nav className="navbar">
+        <div className="navbar-container">
+          <div className="navbar-logo">
+            <Brand />
+          </div>
+          <div className="navbar-elements">
+            <ul>
+              <li key={uuidv4()}>
+                <Link to="/">Home</Link>
+              </li>
+              <li key={uuidv4()}>
+                <Link to="/about">About</Link>
+              </li>
+              <li key={uuidv4()}>
+                <Link to="/contact">Contact</Link>
+              </li>
+              <li key={uuidv4()}>
+                <Link to="/articles">All News</Link>
+              </li>
+
+              <li key={uuidv4()}>
+                <Link to={`/loginpage`}>Login</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav className="navbar">

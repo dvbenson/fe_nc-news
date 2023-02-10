@@ -1,5 +1,5 @@
 .avatar {
-  width: 100%;
+  margin-top: 7.5%;
 }
 
 .avatar-container {
@@ -10,4 +10,21 @@
   border: 1px;
   border-style: solid;
   border-color: black;
+  background-color: white;
+}
+
+.user-name {
+  font-weight: bold;
+}
+
+.user-username {
+  font-style: italic;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
