@@ -52,7 +52,7 @@ function Navbar() {
               <li key={uuidv4()}>
                 <Link to="/articles">All News</Link>
               </li>
-
+              <li>Error Loading Refresh Browser</li>
               <li key={uuidv4()}>
                 <Link to={`/loginpage`}>Login</Link>
               </li>
