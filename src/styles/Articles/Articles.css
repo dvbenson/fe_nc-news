@@ -1,5 +1,6 @@
 /* ARTICLES SEARCH FORM */
 .search-form-articles {
+  margin-top: 2.5%;
   text-align: center;
 }
 .articles-fieldset {
@@ -23,7 +24,7 @@
   justify-content: space-evenly;
   flex-direction: column;
   padding: 20px;
-  gap: 20px;
+  gap: 40px;
 }
 .all-item-card-container {
   display: flex;

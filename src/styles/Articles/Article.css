@@ -3,54 +3,62 @@
   transition: 0.3s;
   border-radius: 5px;
   padding: 7.5px;
-  background-color: rgb(232, 230, 225);
-  text-align: left;
-  margin-left: 15%;
-  margin-right: 15%;
+  background-color: #f5f5f5;
+  margin-left: 10%;
+  margin-right: 10%;
+  /* flex-direction: column;
+  display: flex;
+  justify-content: center; */
+}
+.article-container {
+  padding: 1px 8px;
+  display: grid;
+  grid-template-areas:
+    "title title title title title"
+    ". author date topic ."
+    "img img  img img img"
+    "img img  img  img img"
+    ". body  body  body ."
+    ". body  body  body .";
+
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 5px;
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
+}
+.article-img-container {
+  border-radius: 5px 5px 5px 5px;
+  height: max-content;
+  width: max-content;
+  grid-area: img;
+  margin-left: 12.5%;
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
 }
 
 .article:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
-.article-container {
-  padding: 1px 8px;
-  text-align: left;
-  max-width: auto;
-  max-height: auto;
-  display: grid;
-  grid-template-areas:
-    "title title title title title"
-    "img img  topic author ."
-    "img img  date  comment-count ."
-    "img img  body  article-votes ."
-    "img img  body  .             ."
-    ".    .    .    .        continue-read ";
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  column-gap: 10px;
-  row-gap: 5px;
-}
-.article-container a {
-}
-
 .bold {
   font-weight: bold;
 }
+
 .article-title {
-  font-size: medium;
+  font-size: x-large;
   font-weight: bolder;
   grid-area: title;
   text-align: center;
 }
 .article-topic {
   font-size: small;
-
   grid-area: topic;
 }
 .article-author {
   font-size: small;
-
   grid-area: author;
 }
 .article-date {
@@ -58,37 +66,14 @@
   font-weight: bolder;
   grid-area: date;
 }
-
-.article-comment-count {
-  font-size: small;
-
-  grid-area: comment-count;
-}
-
-.article-votes {
-  font-size: small;
-
-  grid-area: article-votes;
-}
-
 .article-img {
   border-radius: 5px 5px 5px 5px;
-  height: auto;
-  max-height: 250px;
-  width: auto;
-  max-width: 250px;
+  height: max-content;
+  width: max-content;
   grid-area: img;
 }
-
-.continue-read {
-  grid-area: continue-read;
-}
 .article-body {
-  font-size: small;
-
+  font-size: large;
   grid-area: body;
-}
-
-.article-link {
-  grid-area: button;
+  margin-bottom: 10%;
 }

@@ -53,11 +53,14 @@ function Article() {
             <p className="article-date">
               {article.created_at.substring(0, 10)}
             </p>
-            <img
-              className="article-img"
-              src={article.article_img_url}
-              alt={article.author}
-            ></img>
+            <div className="article-img-container">
+              <img
+                className="article-img"
+                src={article.article_img_url}
+                alt={article.author}
+              ></img>
+            </div>
+
             <p className="article-body">{article.body}</p>
           </div>
           <Comments article_id={article_id} />
