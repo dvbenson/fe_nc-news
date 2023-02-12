@@ -1,4 +1,4 @@
-.article-card {
+.article {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
@@ -9,11 +9,11 @@
   margin-right: 15%;
 }
 
-.article-card:hover {
+.article:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.article-card-container {
+.article-container {
   padding: 1px 8px;
   text-align: left;
   max-width: auto;
@@ -31,7 +31,7 @@
   column-gap: 10px;
   row-gap: 5px;
 }
-.article-card-container a {
+.article-container a {
 }
 
 .bold {
@@ -39,10 +39,9 @@
 }
 .article-title {
   font-size: medium;
-
+  font-weight: bolder;
   grid-area: title;
   text-align: center;
-  text-decoration: solid;
 }
 .article-topic {
   font-size: small;
@@ -56,7 +55,7 @@
 }
 .article-date {
   font-size: small;
-
+  font-weight: bolder;
   grid-area: date;
 }
 

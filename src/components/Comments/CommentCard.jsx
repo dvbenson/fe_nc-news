@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/CommentCard.css";
+import "../../styles/Comments/CommentCard.css";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import "../../styles/Login.css";
+import "../../styles/Authentication/Login.css";
 
 function LoginButton({ username }) {
   const { login } = useContext(UserContext);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ErrorPage from "../ErrorPage";
 import { getUsers } from "../../utils";
 import { v4 as uuidv4 } from "uuid";
-import "../../styles/Login.css";
+import "../../styles/Authentication/Login.css";
 import User from "./User";
 
 function LoginPage() {

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/User.css";
+import "../../styles/Authentication/User.css";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 

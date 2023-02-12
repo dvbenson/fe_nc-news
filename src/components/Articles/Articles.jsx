@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import ArticlesCard from "../Articles/ArticlesCard";
 import ErrorPage from "../ErrorPage";
 import { useParams, useSearchParams } from "react-router-dom";
-import "../../styles/Articles.css";
+import "../../styles/Articles/Articles.css";
 
 function Articles() {
   const [articles, setArticles] = useState([]);

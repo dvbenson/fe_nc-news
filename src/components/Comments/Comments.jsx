@@ -4,7 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import CommentCard from "./CommentCard";
 import Toggle from "./Toggle";
 import ErrorPage from "../ErrorPage";
-import "../../styles/Comments.css";
+import AddComment from "./AddComment";
+import "../../styles/Comments/Comments.css";
 import { getCommentsById, deleteCommentById } from "../../utils";
 
 function Comments({ article_id }) {
@@ -65,6 +66,7 @@ function Comments({ article_id }) {
           <Toggle label={`Hide/Show Comments`} onClick={handleClick} />
           {isHidden ? (
             <ul className="comments-card-container">
+              <AddComment />
               {comments.map((comment) => {
                 return (
                   <li key={uuidv4()}>

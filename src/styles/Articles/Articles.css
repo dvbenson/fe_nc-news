@@ -1,3 +1,19 @@
+/* ARTICLES SEARCH FORM */
+.search-form-articles {
+  text-align: center;
+}
+.articles-fieldset {
+  margin-left: 35%;
+  margin-right: 35%;
+  border-radius: 5px 5px 5px 5px;
+}
+.loading-message {
+  font-size: larger;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 15%;
+}
+
 /* ARTICLES */
 .articles-card-container {
   list-style: none;
@@ -19,20 +35,4 @@
 }
 .article-card-individual {
   flex-grow: 0;
-}
-
-/* ARTICLES SEARCH FORM */
-.search-form-articles {
-  text-align: center;
-}
-.articles-fieldset {
-  margin-left: 35%;
-  margin-right: 35%;
-  border-radius: 5px 5px 5px 5px;
-}
-.loading-message {
-  font-size: larger;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 15%;
 }
