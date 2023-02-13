@@ -17,22 +17,24 @@ function AddComment({ article_id, setComments }) {
           return [commentFromApi, ...currComments];
         });
       })
+      .then(() => {
+        setCommentBody("");
+      })
       .catch((err) => {
         setError(err);
       });
   };
   return (
     <section>
-      <form onSubmit={handleSubmit}>
+      <form className="comment-form" onSubmit={handleSubmit}>
         <label htmlFor="comment-input">
           What you saying:
           <textarea
             value={commentBody}
             onChange={(e) => setCommentBody(e.target.value)}
           />
+          <button type="submit">Comment</button>
         </label>
-        <button type="reset">Cancel</button>
-        <button type="submit">Comment</button>
       </form>
       {error !== null ? (
         <div>
