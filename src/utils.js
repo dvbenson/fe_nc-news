@@ -51,7 +51,7 @@ export const deleteCommentById = ({ setError, comment_id }) => {
 };
 
 export const postComment = (commentBody, loggedInUser, article_id) => {
-  let postBody = {
+  const postBody = {
     body: commentBody,
     username: loggedInUser.username,
   };
@@ -59,6 +59,18 @@ export const postComment = (commentBody, loggedInUser, article_id) => {
 
   return newsAPI
     .post(`/articles/${article_id}/comments`, postBody)
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+export const patchArticleVote = (article_id, vote_change) => {
+  const patchBody = {
+    inc_votes: vote_change,
+  };
+
+  return newsAPI
+    .patch(`/articles/${article_id}`, patchBody)
     .then(({ data }) => {
       return data;
     });

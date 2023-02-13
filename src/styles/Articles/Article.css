@@ -19,7 +19,8 @@
     "img img  img img img"
     "img img  img  img img"
     ". body  body  body ."
-    ". body  body  body .";
+    ". body  body  body ."
+    ". . . up down";
 
   grid-template-columns: auto;
   grid-template-rows: auto;
@@ -76,4 +77,12 @@
   font-size: large;
   grid-area: body;
   margin-bottom: 10%;
+}
+
+.upvote {
+  grid-area: up;
+}
+
+.downvote {
+  grid-area: down;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Comments from "../Comments/Comments";
+import Votes from "./Votes";
 import ErrorPage from "../ErrorPage";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../../utils";
@@ -63,6 +64,9 @@ function Article() {
 
             <p className="article-body">{article.body}</p>
           </div>
+          <section className="article=votes">
+            <Votes article_id={article_id} votes={article.votes} />
+          </section>
           <Comments article_id={article_id} />
         </div>
       )}
