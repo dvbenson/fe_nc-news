@@ -1,8 +1,8 @@
 import React from "react";
 import "../../styles/Comments/CommentCard.css";
 import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
+// import * as AiIcons from "react-icons/ai";
+// import * as IoIcons from "react-icons/io";
 
 function CommentCard({ body, author, created_at, votes, comment_id }) {
   return (

@@ -49,3 +49,17 @@ export const deleteCommentById = ({ setError, comment_id }) => {
     }
   });
 };
+
+export const postComment = (commentBody, loggedInUser, article_id) => {
+  let postBody = {
+    body: commentBody,
+    username: loggedInUser.username,
+  };
+  console.log(postBody);
+
+  return newsAPI
+    .post(`/articles/${article_id}/comments`, postBody)
+    .then(({ data }) => {
+      return data;
+    });
+};
