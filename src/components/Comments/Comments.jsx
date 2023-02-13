@@ -5,6 +5,7 @@ import CommentCard from "./CommentCard";
 import Toggle from "./Toggle";
 import ErrorPage from "../ErrorPage";
 import AddComment from "./AddComment";
+import { Link } from "react-router-dom";
 import "../../styles/Comments/Comments.css";
 import { getCommentsById, deleteCommentById } from "../../utils";
 
@@ -66,7 +67,8 @@ function Comments({ article_id }) {
           <Toggle label={`Hide/Show Comments`} onClick={handleClick} />
           {isHidden ? (
             <ul className="comments-card-container">
-              <AddComment />
+              <AddComment article_id={article_id} setComments={setComments} />
+
               {comments.map((comment) => {
                 return (
                   <li key={uuidv4()}>
