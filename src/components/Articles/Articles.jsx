@@ -20,7 +20,7 @@ function Articles() {
     setIsLoading(true);
     getArticles(topic, searchParams)
       .then((articlesFromApi) => {
-        setArticles(articlesFromApi);
+        setArticles(articlesFromApi.articles);
 
         if (articlesFromApi !== null) {
           setIsLoading(false);

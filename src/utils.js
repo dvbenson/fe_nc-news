@@ -13,6 +13,7 @@ export const getArticles = (topic, searchParams) => {
   else if (!topic) paramSearch = { sort_by: sortBy, order: order };
 
   return newsAPI.get("/articles", { params: paramSearch }).then(({ data }) => {
+    console.log(data);
     return data;
   });
 };
