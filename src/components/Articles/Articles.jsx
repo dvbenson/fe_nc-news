@@ -21,6 +21,7 @@ function Articles() {
     getArticles(topic, searchParams)
       .then((articlesFromApi) => {
         setArticles(articlesFromApi.articles);
+        console.log(articlesFromApi.articles);
 
         if (articlesFromApi !== null) {
           setIsLoading(false);
@@ -94,6 +95,7 @@ function Articles() {
       ) : (
         <ul className="articles-card-container">
           {articles.map((article) => {
+            console.log(articles);
             return (
               <li key={uuidv4()}>
                 <ArticlesCard
