@@ -5,7 +5,6 @@ import CommentCard from "./CommentCard";
 import Toggle from "./Toggle";
 import ErrorPage from "../ErrorPage";
 import AddComment from "./AddComment";
-import { Link } from "react-router-dom";
 import "../../styles/Comments/Comments.css";
 import { getCommentsById, deleteCommentById } from "../../utils";
 
