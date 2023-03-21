@@ -1,9 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import * as FaIcons from "react-icons/fa";
-// import * as AiIcons from "react-icons/ai";
-// import * as IoIcons from "react-icons/io";
-import "../../styles/Articles/ArticlesCard.css";
+import React, { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
+import { deleteArticleById } from '../../utils';
+import { Link } from 'react-router-dom';
+import * as FaIcons from 'react-icons/fa';
+import { Card, Button, Row, Col, Badge } from 'react-bootstrap';
+import '../../styles/Articles/Articles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ArticlesCard({
   title,
@@ -15,37 +17,86 @@ function ArticlesCard({
   article_img_url,
   body,
   article_id,
+  setError,
+  articles,
+  setArticles,
 }) {
+  const { loggedInUser } = useContext(UserContext);
+
+  const deleteArticle = (article_id) => {
+    deleteArticleById({ setError, article_id })
+      .then(() => {
+        setArticles((prevArticles) => {
+          return prevArticles.filter(
+            (article) => article.article_id !== article_id
+          );
+        });
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  };
   return (
-    <div className="article-card">
-      <div className="article-card-container">
-        <h1 className="article-card-title">{title}</h1>
-        <p className="article-card-topic">
-          <span className="bold">Topic:</span> {topic}
-        </p>
-        <p className="article-card-author">
-          <span className="bold">By:</span> <i>{author}</i>
-        </p>
-        <p className="article-card-date">
-          <span className="bold">Posted:</span> {created_at.substring(0, 10)}
-        </p>
-        <p className="article-card-comment-count">
-          <span className="bold">Total Comments:</span> {comment_count}
-        </p>
-        <p className="article-card-votes">
-          <span className="bold">Total Votes:</span> {votes}
-        </p>
-        <img
-          className="article-card-img"
-          src={article_img_url}
-          alt={author}
-        ></img>
-        <p className="article-card-body">{body.substring(0, 100) + "..."}</p>
-        <Link className="continue-read" to={`/articles/${article_id}`}>
-          <FaIcons.FaExpandArrowsAlt />
-        </Link>
-      </div>
-    </div>
+    <Card bg='light' text='dark'>
+      <Badge className='topic-badge' pill bg='secondary'>
+        {topic}
+      </Badge>
+      <Card.Img
+        variant='top'
+        src={`${article_img_url}`}
+        alt={author}
+      ></Card.Img>
+
+      <Card.Title>{title}</Card.Title>
+      <Card.Subtitle>
+        <Row>
+          <Col>
+            <Badge className='author-badge' bg='dark'>
+              {author}
+            </Badge>
+          </Col>
+          <Col>
+            <Badge className='date-badge' bg='dark'>
+              {created_at.substring(0, 10)}
+            </Badge>
+          </Col>
+        </Row>
+      </Card.Subtitle>
+      <Card.Body>
+        <Card.Text>{body.substring(0, 100) + '...'}</Card.Text>
+      </Card.Body>
+      <Card.Body>
+        <FaIcons.FaThumbsUp />
+        {votes}
+        <FaIcons.FaCommentDots /> {comment_count}
+      </Card.Body>
+      <Card.Footer>
+        <Row>
+          {loggedInUser.username === author ? (
+            <Col>
+              <Button
+                variant='secondary'
+                onClick={() => deleteArticle(article_id)}
+                className='article-delete-btn'
+              >
+                Delete Article
+              </Button>
+            </Col>
+          ) : (
+            <></>
+          )}
+          <Col>
+            <Button
+              variant='secondary'
+              as={Link}
+              to={`/articles/${article_id}`}
+            >
+              Continue reading...
+            </Button>
+          </Col>
+        </Row>
+      </Card.Footer>
+    </Card>
   );
 }
 

@@ -5,14 +5,6 @@
 .login-page {
   margin-left: 10%;
   margin-right: 10%;
-  /* display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between; */
-}
-
-.login-title {
-  margin-top: 7.5%;
 }
 
 .user-profiles-container {
@@ -29,6 +21,7 @@
   gap: 25px;
   align-items: center;
   justify-content: space-between;
+  margin-top: 2.5%;
 }
 
 .avatar {
@@ -46,7 +39,7 @@
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-family: nunito, roboto, proxima-nova, 'proxima nova', sans-serif;
   font-size: 16px;
   font-weight: 800;
   line-height: 16px;
@@ -83,7 +76,7 @@
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-family: nunito, roboto, proxima-nova, 'proxima nova', sans-serif;
   font-size: 16px;
   font-weight: 800;
   line-height: 16px;

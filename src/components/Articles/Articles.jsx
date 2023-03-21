@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { getArticles } from "../../utils";
-import { v4 as uuidv4 } from "uuid";
-import ArticlesCard from "../Articles/ArticlesCard";
-import ErrorPage from "../ErrorPage";
-import { useParams, useSearchParams } from "react-router-dom";
-import "../../styles/Articles/Articles.css";
+import React, { useEffect, useState } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { getArticles } from '../../utils';
+import ArticlesCard from '../Articles/ArticlesCard';
+import NewArticleModal from './NewArticleModal';
+import ErrorPage from '../ErrorPage';
+import { v4 as uuidv4 } from 'uuid';
+import { Col, Row, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../styles/Articles/Articles.css';
 
-function Articles() {
+function Articles({ topics, setTopics }) {
   const [articles, setArticles] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [sortBy, setSortBy] = useState("created_at");
-  const [order, setOrder] = useState("asc");
+  const [sortBy, setSortBy] = useState('created_at');
+  const [order, setOrder] = useState('asc');
+  const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { topic } = useParams();
@@ -21,7 +25,6 @@ function Articles() {
     getArticles(topic, searchParams)
       .then((articlesFromApi) => {
         setArticles(articlesFromApi.articles);
-        console.log(articlesFromApi.articles);
 
         if (articlesFromApi !== null) {
           setIsLoading(false);
@@ -45,75 +48,99 @@ function Articles() {
     const newSearchParams = new URLSearchParams(params);
     return setSearchParams(newSearchParams);
   };
-
   if (error) {
     return <ErrorPage status={error.response.status} />;
   }
   return (
-    <section className="search-form-articles">
-      <form onSubmit={handleSubmit}>
-        <fieldset className="articles-fieldset">
-          <legend>Refine your search:</legend>
-          <label htmlFor="sort-by">Sort By:</label>
+    <section>
+      <form className='article-search' onSubmit={handleSubmit}>
+        <label htmlFor='sort-by'>
+          Sort By:
           <select
-            id="sort-by"
-            name="sort-by"
+            className='select'
+            id='sort-by'
+            name='sort-by'
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
           >
-            <option key="created_at" value="created_at">
+            <option key='created_at' value='created_at'>
               Date
             </option>
-            <option key="comment_count" value="comment_count">
+            <option key='comment_count' value='comment_count'>
               Comments
             </option>
-            <option key="votes" value="votes">
+            <option key='votes' value='votes'>
               Votes
             </option>
           </select>
-          <label htmlFor="order">Order:</label>
+        </label>
+        <label htmlFor='order'>
+          Order:
           <select
-            id="order"
-            name="order"
+            className='select'
+            id='order'
+            name='order'
             value={order}
             onChange={(e) => setOrder(e.target.value)}
           >
-            <option key="asc" value="asc">
+            <option key='asc' value='asc'>
               Asc
             </option>
-            <option key="desc" value="desc">
+            <option key='desc' value='desc'>
               Desc
             </option>
           </select>
-          <button type="submit">Search</button>
-        </fieldset>
+        </label>
+        <div className='article-search-btn'>
+          <Button variant='secondary' type='submit'>
+            Search
+          </Button>
+        </div>
+        <div className='modal-btn'>
+          <Button variant='secondary' onClick={() => setIsOpen(true)}>
+            Post New Article
+          </Button>
+          <NewArticleModal
+            open={isOpen}
+            onClose={() => setIsOpen(false)}
+            topics={topics}
+            setTopics={setTopics}
+            articles={articles}
+            setArticles={setArticles}
+          ></NewArticleModal>
+        </div>
       </form>
+
       {isLoading ? (
-        <p className="loading-message">
+        <p className='loading-message'>
           <i>Making up the news...</i>
         </p>
       ) : (
-        <ul className="articles-card-container">
-          {articles.map((article) => {
-            console.log(articles);
-            return (
-              <li key={uuidv4()}>
-                <ArticlesCard
-                  className="article-card-individual"
-                  title={article.title}
-                  topic={article.topic}
-                  author={article.author}
-                  created_at={article.created_at}
-                  comment_count={article.comment_count}
-                  votes={article.votes}
-                  article_img_url={article.article_img_url}
-                  body={article.body}
-                  article_id={article.article_id}
-                />
-              </li>
-            );
-          })}
-        </ul>
+        <section className='article-list'>
+          <Row xs={1} md={3}>
+            {articles.map((article) => {
+              return (
+                <Col key={uuidv4()}>
+                  <ArticlesCard
+                    className='article-card-individual'
+                    title={article.title}
+                    topic={article.topic}
+                    author={article.author}
+                    created_at={article.created_at}
+                    comment_count={article.comment_count}
+                    votes={article.votes}
+                    article_img_url={article.article_img_url}
+                    body={article.body}
+                    article_id={article.article_id}
+                    setError={setError}
+                    articles={articles}
+                    setArticles={setArticles}
+                  />
+                </Col>
+              );
+            })}
+          </Row>
+        </section>
       )}
     </section>
   );

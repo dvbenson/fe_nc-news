@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
-import Comments from "../Comments/Comments";
-import Votes from "./Votes";
-import ErrorPage from "../ErrorPage";
-import { useParams } from "react-router-dom";
-import { getArticleById } from "../../utils";
-import "../../styles/Articles/Article.css";
+import React, { useEffect, useState } from 'react';
+import Comments from '../Comments/Comments';
+import Votes from './Votes';
+import ErrorPage from '../ErrorPage';
+import { useParams } from 'react-router-dom';
+import { getArticleById } from '../../utils';
+import { Row, Col, Badge, Container, Card } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../styles/Articles/Articles.css';
 
 function Article() {
+  const [isArticle, setIsArticle] = useState(false);
+  const [verifyArticle, setVerifyArticle] = useState('article');
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,6 +31,7 @@ function Article() {
         setError(err);
 
         setIsLoading(false);
+        setIsArticle(false);
       });
   }, [article_id]);
 
@@ -35,42 +40,61 @@ function Article() {
   }
 
   return (
-    <section>
+    <main>
       {isLoading ? (
-        <p className="loading-message">
+        <p className='loading-message'>
           <i>Making up the news...</i>
         </p>
       ) : (
-        <div className="article">
-          <div className="article-container">
-            <h1 className="article-title">{article.title}</h1>
-            <p className="article-topic">
-              <span className="bold">Topic: </span>
-              {article.topic}
-            </p>
-            <p className="article-author">
-              <span className="bold">By</span> <i>{article.author}</i>
-            </p>
-            <p className="article-date">
-              {article.created_at.substring(0, 10)}
-            </p>
-            <div className="article-img-container">
-              <img
-                className="article-img"
-                src={article.article_img_url}
-                alt={article.author}
-              ></img>
-            </div>
-
-            <p className="article-body">{article.body}</p>
+        <Card>
+          <div className='img-container'>
+            <Card.Img
+              className='img-fluid'
+              variant='top'
+              src={`${article.article_img_url}`}
+              alt={article.author}
+            />
           </div>
-          <section className="article=votes">
-            <Votes article_id={article_id} votes={article.votes} />
-          </section>
-          <Comments article_id={article_id} />
-        </div>
+          <Card.Title>{article.title}</Card.Title>
+          <Card.Subtitle>
+            <Row>
+              <Col>
+                <Badge bg='dark'>{article.topic}</Badge>
+              </Col>
+              <Col>
+                <Badge className='author-badge' bg='dark'>
+                  {article.author}
+                </Badge>
+              </Col>
+              <Col>
+                <Badge className='date-badge' bg='dark'>
+                  {article.created_at.substring(0, 10)}
+                </Badge>
+              </Col>
+            </Row>
+          </Card.Subtitle>
+          <Card.Body>
+            <Card.Text>{article.body}</Card.Text>
+          </Card.Body>
+
+          <Row className='votes-container'>
+            <Col></Col>
+            <Col>
+              <Votes
+                id={article_id}
+                votes={article.votes}
+                location={isArticle}
+                setLocation={setIsArticle}
+                verify={verifyArticle}
+              />
+            </Col>
+          </Row>
+          <Container>
+            <Comments article_id={article_id} />
+          </Container>
+        </Card>
       )}
-    </section>
+    </main>
   );
 }
 

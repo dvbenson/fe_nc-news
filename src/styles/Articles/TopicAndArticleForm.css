@@ -1,0 +1,47 @@
+.modal-title {
+  margin: 0;
+  padding: 0;
+}
+
+.new-topic-form,
+.article-form {
+  padding: 0;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.new-article-btn,
+.new-topic-btn {
+  margin-top: 1%;
+  display: block;
+  text-align: center;
+}
+
+.modal-close-btn {
+  margin-top: 8%;
+  text-align: center;
+}
+
+.topic-select {
+  margin-left: 2.5%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  min-width: 57.5%;
+  text-align: center;
+}
+
+.article-label {
+  display: block;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.topic-input,
+.article-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  min-height: 2em;
+  min-width: 100%;
+}

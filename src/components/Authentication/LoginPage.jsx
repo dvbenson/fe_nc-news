@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import ErrorPage from "../ErrorPage";
-import { getUsers } from "../../utils";
-import { v4 as uuidv4 } from "uuid";
-import "../../styles/Authentication/Login.css";
-import User from "./User";
+import React, { useState, useEffect } from 'react';
+import ErrorPage from '../ErrorPage';
+import { getUsers } from '../../utils';
+import { v4 as uuidv4 } from 'uuid';
+import '../../styles/Authentication/Login.css';
+import User from './User';
 
 function LoginPage() {
   const [users, setUsers] = useState([]);
@@ -33,20 +33,19 @@ function LoginPage() {
   }
 
   return (
-    <section className="login-page">
-      <h1 className="login-title">Login below:</h1>
+    <section className='login-page'>
       {isLoading ? (
-        <p className="loading-message">
+        <p className='loading-message'>
           <i>Almost there...</i>
         </p>
       ) : (
-        <div className="user-profiles-container">
-          <ul className="user-list">
+        <div className='user-profiles-container'>
+          <ul className='user-list'>
             {users.map((user) => {
               return (
                 <li key={uuidv4()}>
                   <User
-                    className="user-individual"
+                    className='user-individual'
                     img={user.avatar_url}
                     name={user.name}
                     username={user.username}

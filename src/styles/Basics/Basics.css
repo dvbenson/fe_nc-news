@@ -14,15 +14,16 @@ p {
 .home-main {
   margin-left: 15%;
   margin-right: 15%;
+  margin-top: 2.5%;
 }
 
-/* ABOUT */
+/* ABOUT
 .about-main {
   margin-left: 15%;
   margin-right: 15%;
 }
 
-/* CONTACT */
+CONTACT
 .contact-form {
   padding: 0;
 }
@@ -63,4 +64,4 @@ input[type="email"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-}
+} */

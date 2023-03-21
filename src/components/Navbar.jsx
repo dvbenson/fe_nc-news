@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../contexts/UserContext';
+import { getTopics } from '../utils';
+import { Link } from 'react-router-dom';
+import Login from './Authentication/Login';
+import User from './Authentication/User';
+import { v4 as uuidv4 } from 'uuid';
+import { ReactComponent as Brand } from '../images/logo.svg';
+import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/navbar.css';
 
-import { getTopics } from "../utils";
-import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
-import "../styles/Navbar.css";
-import { ReactComponent as Brand } from "../images/logo.svg";
-
-function Navbar() {
-  const [topics, setTopics] = useState([]);
+function NavBar({ topics, setTopics }) {
   const [error, setError] = useState(null);
+  const { loggedInUser } = useContext(UserContext);
 
   useEffect(() => {
     setError(null);
@@ -28,74 +32,70 @@ function Navbar() {
 
   if (error) {
     return (
-      <nav className="navbar">
-        <div className="navbar-container">
-          <div className="navbar-logo">
+      <Navbar variant='light' bg='danger' expand='lg'>
+        <Container>
+          <Navbar.Brand>
             <Brand />
-          </div>
-          <div className="navbar-elements">
-            <ul>
-              <li key={uuidv4()}>
-                <Link to={`/loginpage`}>Login</Link>
-              </li>
-              <li key={uuidv4()}>
-                <Link to="/">Home</Link>
-              </li>
-              <li key={uuidv4()}>
-                <Link to="/about">About</Link>
-              </li>
-              <li key={uuidv4()}>
-                <Link to="/contact">Contact</Link>
-              </li>
-              <li key={uuidv4()}>
-                <Link to="/articles">All News</Link>
-              </li>
-              <li>Error Loading Refresh Browser</li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
+          <Navbar.Collapse id='basic-navbar-nav'>
+            <Nav className='me-auto'>
+              <Nav.Link as={Link} to={`/`}>
+                Home
+              </Nav.Link>
+              <NavDropdown title='News' id='basic-nav-dropdown'>
+                <NavDropdown.Item key={uuidv4()}>
+                  Error, reload browser
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link as={Link} to={`/loginpage`}>
+                Login
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     );
   }
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-logo">
+    <Navbar variant='light' bg='danger' expand='lg'>
+      <Container>
+        <Navbar.Brand>
           <Brand />
-        </div>
-        <div className="navbar-elements">
-          <ul>
-            <li key={uuidv4()}>
-              <Link to={`/loginpage`}>Login</Link>
-            </li>
-            <li key={uuidv4()}>
-              <Link to="/">Home</Link>
-            </li>
-            <li key={uuidv4()}>
-              <Link to="/about">About</Link>
-            </li>
-            <li key={uuidv4()}>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li key={uuidv4()}>
-              <Link to="/articles">News</Link>
-            </li>
-
-            {topics.map((topic) => {
-              return (
-                <li key={uuidv4()}>
-                  <Link to={`/topics/${topic.slug}`}>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse id='basic-navbar-nav'>
+          <Nav className='me-auto'>
+            <Nav.Link as={Link} to={`/`}>
+              Home
+            </Nav.Link>
+            <NavDropdown title='News' id='basic-nav-dropdown'>
+              <NavDropdown.Item key={uuidv4()} as={Link} to={`/articles`}>
+                All News
+              </NavDropdown.Item>
+              {topics.map((topic) => {
+                return (
+                  <NavDropdown.Item
+                    key={uuidv4()}
+                    as={Link}
+                    to={`/topics/${topic.slug}`}
+                  >
                     {capFirstLetter(topic.slug)}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-    </nav>
+                  </NavDropdown.Item>
+                );
+              })}
+            </NavDropdown>
+            <Nav.Link as={Link} to={`/loginpage`}>
+              Login
+            </Nav.Link>
+          </Nav>
+
+          <Login />
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default NavBar;

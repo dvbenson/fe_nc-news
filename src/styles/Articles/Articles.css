@@ -1,13 +1,36 @@
-/* ARTICLES SEARCH FORM */
-.search-form-articles {
-  margin-top: 2.5%;
+/* ARTICLES SEARCH FORM  */
+
+.article-search {
   text-align: center;
 }
-.articles-fieldset {
-  margin-left: 35%;
-  margin-right: 35%;
-  border-radius: 5px 5px 5px 5px;
+.select {
+  margin-top: 10%;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
+.article-search-select,
+.article-search-btn,
+.modal-btn {
+  display: inline-block;
+}
+
+.article-search label,
+.article-search .select,
+.article-search-btn {
+  display: inline-block;
+  margin-right: 10px;
+}
+.article-search label {
+  font-weight: bold;
+}
+
+.article-search .modal-btn {
+  display: inline-block;
+  margin-left: 10px;
+}
+
 .loading-message {
   font-size: larger;
   text-align: center;
@@ -16,24 +39,100 @@
 }
 
 /* ARTICLES */
-.articles-card-container {
-  list-style: none;
+@media (min-width: 758px) {
+  .row {
+    justify-content: space-around;
+    padding: 1%;
+  }
+  .col {
+    padding: 1%;
+  }
+
+  .card-title {
+    min-height: 50px;
+  }
+}
+
+/* // 50/25/80/80/55 */
+
+.btn {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.btn:hover {
+  background-color: #f1f1f1;
+}
+
+/* ARTICLE CARD */
+
+@media (min-width: 758px) {
+  .articles-card-container {
+    width: 25%;
+  }
+}
+
+.card-body {
   display: flex;
   flex-wrap: wrap;
-  flex-flow: wrap;
-  justify-content: space-evenly;
-  flex-direction: column;
-  padding: 20px;
-  gap: 40px;
+  justify-content: flex-end;
+  gap: 2.5%;
+  padding: 2.5%;
 }
-.all-item-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-flow: wrap;
-  justify-content: space-evenly;
-  padding: 10px;
-  gap: 10px;
+.card-title {
+  font-weight: bold;
+  text-align: center;
 }
-.article-card-individual {
-  flex-grow: 0;
+
+.card-subtitle {
+  text-align: center;
+}
+.card-text {
+  padding: 2.5%;
+  font-style: italic;
+}
+
+.topic-badge {
+  left: 5px;
+  position: absolute;
+  top: 5px;
+}
+
+.card-footer {
+  display: inline-block;
+}
+
+.col {
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.col:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ARTICLE */
+
+@media (min-width: 758px) {
+  .card-title {
+    font-size: xx-large;
+  }
+}
+
+.votes-container {
+  text-align: right;
+  margin-right: 5%;
+  margin-bottom: 2.5%;
+}
+
+.card-title {
+  margin-top: 1%;
 }

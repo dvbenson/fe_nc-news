@@ -17,7 +17,6 @@ export const UserProvider = (props) => {
       auth: true,
     }));
   };
-  // console.log(loggedInUser, "<---loggedin user");
 
   //logout updates the user data to default
   const logout = () => {
@@ -26,7 +25,6 @@ export const UserProvider = (props) => {
       auth: false,
     }));
   };
-  // console.log(loggedInUser, "<---loggedout user");
 
   return (
     <UserContext.Provider value={{ loggedInUser, login, logout }}>
