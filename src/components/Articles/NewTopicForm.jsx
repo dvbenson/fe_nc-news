@@ -28,7 +28,11 @@ function NewTopicForm({ topics, setTopics }) {
   };
 
   return (
-    <form className='new-topic-form' onSubmit={handleTopicSubmit}>
+    <form
+      className='new-topic-form'
+      onSubmit={handleTopicSubmit}
+      id='newTopicForm'
+    >
       <label className='article-label' htmlFor='slug'>
         Add a new topic:
         <input

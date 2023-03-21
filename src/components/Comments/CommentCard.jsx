@@ -16,18 +16,23 @@ function CommentCard({
 }) {
   const [verifyComment, setVerifyComment] = useState('comment');
   return (
-    <Card>
+    <Card bg='light' border='dark'>
+      <Card.Header>
+        <Row>
+          <Col>
+            <Badge bg='dark' className='author-badge-comment'>
+              {author}
+            </Badge>
+            <Badge bg='dark'>{created_at.substring(0, 10)}</Badge>
+          </Col>
+        </Row>
+      </Card.Header>
+
       <Row>
         <Col className='comment-body'>{body}</Col>
       </Row>
 
       <Row>
-        <Col className='footer-badges'>
-          <Badge bg='dark' className='author-badge-comment'>
-            {author}
-          </Badge>
-          <Badge bg='dark'>{created_at.substring(0, 10)}</Badge>
-        </Col>
         <Col className='footer-votes'>
           <Votes
             id={comment_id}

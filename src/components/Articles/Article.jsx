@@ -55,7 +55,9 @@ function Article() {
               alt={article.author}
             />
           </div>
-          <Card.Title>{article.title}</Card.Title>
+          <Card.Title className='ind-card'>
+            {article.title} bg="light"
+          </Card.Title>
           <Card.Subtitle>
             <Row>
               <Col>

@@ -29,7 +29,7 @@ function AddComment({ article_id, comments, setComments }) {
   };
   return (
     <section className='comment-form'>
-      <Form.Group onSubmit={handleSubmit}>
+      <Form.Group onSubmit={handleSubmit} controlId='formBasicComment'>
         <Form.Label>What you saying:</Form.Label>
         <Form.Control
           type='textarea'

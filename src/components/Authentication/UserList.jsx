@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ErrorPage from '../ErrorPage';
 import { getUsers } from '../../utils';
 import { v4 as uuidv4 } from 'uuid';
 import '../../styles/Authentication/Login.css';
-import User from './User';
+import UserCard from './UserCard';
+import { Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function LoginPage() {
+function UserList() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -33,31 +36,31 @@ function LoginPage() {
   }
 
   return (
-    <section className='login-page'>
+    <section className='user-list'>
       {isLoading ? (
         <p className='loading-message'>
           <i>Almost there...</i>
         </p>
       ) : (
-        <div className='user-profiles-container'>
-          <ul className='user-list'>
-            {users.map((user) => {
-              return (
-                <li key={uuidv4()}>
-                  <User
-                    className='user-individual'
-                    img={user.avatar_url}
-                    name={user.name}
-                    username={user.username}
-                  />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <Row xs={1} md={1} lg={1}>
+          {users.map((user) => {
+            return (
+              <Col key={uuidv4()} className='user-position'>
+                <UserCard
+                  as={Link}
+                  to={`/users/${user.username}`}
+                  className='user-individual'
+                  img={user.avatar_url}
+                  name={user.name}
+                  username={user.username}
+                />
+              </Col>
+            );
+          })}
+        </Row>
       )}
     </section>
   );
 }
 
-export default LoginPage;
+export default UserList;

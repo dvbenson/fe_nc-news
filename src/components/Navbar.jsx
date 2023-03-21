@@ -1,18 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../contexts/UserContext';
+import React, { useState, useEffect } from 'react';
 import { getTopics } from '../utils';
 import { Link } from 'react-router-dom';
 import Login from './Authentication/Login';
-import User from './Authentication/User';
 import { v4 as uuidv4 } from 'uuid';
 import { ReactComponent as Brand } from '../images/logo.svg';
-import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/navbar.css';
+import '../styles/Authentication/Login.css';
 
 function NavBar({ topics, setTopics }) {
   const [error, setError] = useState(null);
-  const { loggedInUser } = useContext(UserContext);
 
   useEffect(() => {
     setError(null);
@@ -48,10 +45,11 @@ function NavBar({ topics, setTopics }) {
                   Error, reload browser
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link as={Link} to={`/loginpage`}>
-                Login
+              <Nav.Link as={Link} to={`/users`}>
+                Users
               </Nav.Link>
             </Nav>
+            <Login />
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -86,8 +84,8 @@ function NavBar({ topics, setTopics }) {
                 );
               })}
             </NavDropdown>
-            <Nav.Link as={Link} to={`/loginpage`}>
-              Login
+            <Nav.Link as={Link} to={`/users`}>
+              Users
             </Nav.Link>
           </Nav>
 

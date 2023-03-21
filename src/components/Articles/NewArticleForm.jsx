@@ -6,7 +6,13 @@ import { Button } from 'react-bootstrap';
 import '../../styles/Articles/TopicAndArticleForm.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function NewArticleForm({ topics, setTopics, articles, setArticles }) {
+function NewArticleForm({
+  topics,
+  setTopics,
+  articles,
+  setArticles,
+  handleClose,
+}) {
   const [newArticle, setNewArticle] = useState({
     author: '',
     title: '',
@@ -45,7 +51,7 @@ function NewArticleForm({ topics, setTopics, articles, setArticles }) {
   };
 
   return (
-    <form onSubmit={handleArticleSubmit}>
+    <form onSubmit={handleArticleSubmit} id='newArticleForm'>
       <label className='article-label' htmlFor='topic'>
         Select existing topic:
         <select
@@ -56,6 +62,7 @@ function NewArticleForm({ topics, setTopics, articles, setArticles }) {
             setCurrentTopic(e.target.value);
             handleArticleChange(e);
           }}
+          required
         >
           <option defaultValue='Please Select' disabled>
             Please Select
@@ -76,6 +83,7 @@ function NewArticleForm({ topics, setTopics, articles, setArticles }) {
           className='article-input'
           name='title'
           onChange={handleArticleChange}
+          required
         ></input>
       </label>
       <label className='article-label' htmlFor='article-img-url'>
@@ -92,10 +100,13 @@ function NewArticleForm({ topics, setTopics, articles, setArticles }) {
           className='article-input'
           name='body'
           onChange={handleArticleChange}
+          required
         ></textarea>
       </label>
       <div className='new-article-btn'>
-        <Button type='submit'>Submit New Article</Button>
+        <Button type='submit' onClick={handleClose}>
+          Submit New Article
+        </Button>
       </div>
     </form>
   );

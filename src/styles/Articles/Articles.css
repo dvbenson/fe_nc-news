@@ -5,7 +5,6 @@
 }
 .select {
   margin-top: 10%;
-
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -47,13 +46,7 @@
   .col {
     padding: 1%;
   }
-
-  .card-title {
-    min-height: 50px;
-  }
 }
-
-/* // 50/25/80/80/55 */
 
 .btn {
   background-color: #ddd;
@@ -95,10 +88,6 @@
 .card-subtitle {
   text-align: center;
 }
-.card-text {
-  padding: 2.5%;
-  font-style: italic;
-}
 
 .topic-badge {
   left: 5px;
@@ -110,19 +99,19 @@
   display: inline-block;
 }
 
-.col {
+.complete-card {
   transition: 0.3s;
   border-radius: 5px;
 }
 
-.col:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+.complete-card:hover {
+  box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.4);
 }
 
 /* ARTICLE */
 
 @media (min-width: 758px) {
-  .card-title {
+  div.ind-card.card-title.h5 {
     font-size: xx-large;
   }
 }

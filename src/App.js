@@ -6,7 +6,7 @@ import Home from './components/Basics/Home';
 import Articles from './components/Articles/Articles';
 import Article from './components/Articles/Article';
 import Comments from './components/Comments/Comments';
-import LoginPage from './components/Authentication/LoginPage';
+import UserList from './components/Authentication/UserList';
 import Login from './components/Authentication/Login';
 import './styles/App.css';
 
@@ -23,7 +23,8 @@ function App() {
           path='/topics/:topic'
           element={<Articles topics={topics} setTopics={setTopics} />}
         />
-        <Route path='/loginpage' element={<LoginPage />} />
+        <Route path='/users' element={<UserList />} />
+        <Route path='/users/:username' element={<UserList />} />
         <Route path='/login' element={<Login />} />
         <Route
           path='/articles'

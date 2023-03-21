@@ -37,7 +37,12 @@ function ArticlesCard({
       });
   };
   return (
-    <Card bg='light' text='dark'>
+    <Card
+      bg='light'
+      text='dark'
+      className='complete-card'
+      style={{ height: '100%' }}
+    >
       <Badge className='topic-badge' pill bg='secondary'>
         {topic}
       </Badge>
@@ -45,9 +50,10 @@ function ArticlesCard({
         variant='top'
         src={`${article_img_url}`}
         alt={author}
+        style={{ height: '100%' }}
       ></Card.Img>
 
-      <Card.Title>{title}</Card.Title>
+      <Card.Title style={{ height: '100%' }}>{title}</Card.Title>
       <Card.Subtitle>
         <Row>
           <Col>

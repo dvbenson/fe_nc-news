@@ -14,7 +14,6 @@ function Articles({ topics, setTopics }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [sortBy, setSortBy] = useState('created_at');
   const [order, setOrder] = useState('asc');
-  const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { topic } = useParams();
@@ -53,7 +52,11 @@ function Articles({ topics, setTopics }) {
   }
   return (
     <section>
-      <form className='article-search' onSubmit={handleSubmit}>
+      <form
+        className='article-search'
+        onSubmit={handleSubmit}
+        id='articleSearch'
+      >
         <label htmlFor='sort-by'>
           Sort By:
           <select
@@ -97,12 +100,7 @@ function Articles({ topics, setTopics }) {
           </Button>
         </div>
         <div className='modal-btn'>
-          <Button variant='secondary' onClick={() => setIsOpen(true)}>
-            Post New Article
-          </Button>
           <NewArticleModal
-            open={isOpen}
-            onClose={() => setIsOpen(false)}
             topics={topics}
             setTopics={setTopics}
             articles={articles}
@@ -122,7 +120,6 @@ function Articles({ topics, setTopics }) {
               return (
                 <Col key={uuidv4()}>
                   <ArticlesCard
-                    className='article-card-individual'
                     title={article.title}
                     topic={article.topic}
                     author={article.author}
