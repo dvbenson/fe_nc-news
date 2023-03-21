@@ -38,7 +38,7 @@ function NavBar({ topics, setTopics }) {
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
               <Nav.Link as={Link} to={`/`}>
-                Home
+                News
               </Nav.Link>
               <NavDropdown title='News' id='basic-nav-dropdown'>
                 <NavDropdown.Item key={uuidv4()}>
@@ -66,12 +66,9 @@ function NavBar({ topics, setTopics }) {
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='me-auto'>
             <Nav.Link as={Link} to={`/`}>
-              Home
+              News
             </Nav.Link>
-            <NavDropdown title='News' id='basic-nav-dropdown'>
-              <NavDropdown.Item key={uuidv4()} as={Link} to={`/articles`}>
-                All News
-              </NavDropdown.Item>
+            <NavDropdown title='Topics' id='basic-nav-dropdown'>
               {topics.map((topic) => {
                 return (
                   <NavDropdown.Item

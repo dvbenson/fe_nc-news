@@ -18,7 +18,7 @@ function App() {
       <NavBar topics={topics} setTopics={setTopics} />
       <Routes>
         <Route path='*' element={<ErrorPage />} />
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Articles />} />
         <Route
           path='/topics/:topic'
           element={<Articles topics={topics} setTopics={setTopics} />}
