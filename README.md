@@ -1,20 +1,25 @@
 # **Northcoders News APP**
 
-## **Project Overview:**
+### **Project Overview:**
 
+
+
+<br>
+
+#### **Tech:** React and Bootstrap
 ---
 
+This project utilises a back end API I built in Node.js with Express.js, storing all comments, articles, users and topics in a **postgres** database.
+
+At the forefront of learning with this project, I wanted simple design - both in design and build - opting for Bootstrap for pre-made components, whilst focusing on mobile-first resonsiveness and accessibility.
+
+This site has some features that are hard-coded, such as the login page. This is to allow certain features of the page to be available only if authorised - _it is by no means an authentication system_.
+
+At the forefront of my design it has been imperative to ensure that user experience was present on all features, the site uses CRUD operations from my backend allowing a 'logged on' user to add comments/articles, delete their comments/articles, add new topics and vote on them too.
+
 <br>
 
-This project was my first front end project using **React**, since graduating from Northcoders I have since used it as a sandbox for getting familiar with **Bootstrap** and general styling. It utilises a back end API I built, storing all comments, articles, users and topics in a **postgres** database whilst using **Node.js** plus **Express** for http requests.
-
-It was my intention to learn more about accessibility in this process, alongside honing in on workflow to be able to have more utilities at my finger tips when initially creating a skeleton framework for a site design. This site has some features that are hard-coded, such as the login page. This is to allow certain features of the page to be available only if authorised - _it is by no means an authentication system_.
-
-At the forefront of my design it has been imperative to ensure that user experience was present on all features, the site uses CRUD operations from my back end allowing a 'logged on' user to add comments/articles, delete their comments/articles, add new topics and vote on them too.
-
-<br>
-
-## **Getting Started**
+### **Getting Started**
 
 ---
 
@@ -26,7 +31,7 @@ From there, you can post comments, vote on posts and read any stock articles in 
 
 <br>
 
-## **Backend API & Hosted App:**
+### **Backend API & Hosted App:**
 
 ---
 
@@ -39,7 +44,7 @@ _Here are some useful links:_
 
 <br>
 
-## **Installation and Minimum Requirements:**
+### **Installation and Minimum Requirements:**
 
 ---
 
@@ -49,7 +54,7 @@ _Here are some useful links:_
 
 <br>
 
-## **Cloning the repository:**
+### **Cloning the repository:**
 
 ---
 
@@ -79,7 +84,7 @@ $ git clone https://github.com/dvbenson/fe-nc-news.git
 
 <br>
 
-## **Dependencies:**
+### **Dependencies:**
 
 ---
 
@@ -93,7 +98,7 @@ $ npm install
 
 <br>
 
-## **Starting the site:**
+### **Starting the site:**
 
 ---
 
